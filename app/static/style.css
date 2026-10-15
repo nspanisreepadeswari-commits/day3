@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f5f7fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    --accent: #4f46e5;
+    --muted: #64748b;
+    --line: #edf0f4;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 48px 16px;
+    background:
+        radial-gradient(ellipse at 50% 0, rgba(99, 102, 241, 0.11), transparent 34rem),
+        linear-gradient(135deg, #eef2ff, #f8fafc 62%);
+}
+
+.container {
+    width: min(100%, 680px);
+    margin: 0 auto;
+    padding: 36px;
+    border: 1px solid rgba(229, 231, 235, 0.9);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(31, 41, 55, 0.08);
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(30px, 6vw, 42px);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.subtitle {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+#task-form {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0 22px;
+}
+
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: #172033;
+    font: inherit;
+    font-size: 15px;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#task-input::placeholder {
+    color: #94a3b8;
+}
+
+#task-input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.13);
+}
+
+button {
+    border: 0;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 150ms ease, transform 150ms ease;
+}
+
+#task-form button {
+    flex: 0 0 auto;
+    padding: 12px 17px;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #4338ca;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.28);
+    outline-offset: 2px;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#task-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    padding: 12px 2px;
+    border-top: 1px solid var(--line);
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    margin: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.task-title {
+    flex: 1;
+    overflow-wrap: anywhere;
+    color: #263247;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.task.done .task-title {
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+.task button {
+    padding: 8px 10px;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 12px;
+}
+
+.task button:hover {
+    background: #fecaca;
+}
+
+.empty-state {
+    margin: 0;
+    padding: 23px 12px;
+    border-top: 1px solid var(--line);
+    color: #94a3b8;
+    font-size: 14px;
+    text-align: center;
+}
+
+#message {
+    min-height: 18px;
+    margin: 12px 0 0;
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 24px 12px;
+    }
+
+    .container {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    #task-form {
+        flex-direction: column;
+    }
+
+    #task-form button {
+        min-height: 46px;
+    }
+}

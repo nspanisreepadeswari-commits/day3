@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#eef2ff">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">MY WORKSPACE</p>
+            <h1>Task Manager</h1>
+            <p class="subtitle">Plan your day, one task at a time.</p>
+        </header>
+
+        <form id="task-form">
+            <label class="sr-only" for="task-input">Add a task</label>
+            <input
+                id="task-input"
+                type="text"
+                placeholder="What do you need to do?"
+                maxlength="100"
+                required
+            >
+            <button type="submit">+ Add task</button>
+        </form>
+
+        <div class="summary">
+            <span id="task-count">0 tasks</span>
+            <span id="completed-count">0 completed</span>
+        </div>
+
+        <ul id="task-list" aria-live="polite"></ul>
+        <p class="empty-state" id="empty-state">Your list is clear. Add a task to get started.</p>
+        <p id="message" role="status" aria-live="polite"></p>
+    </main>
+</body>
+
+</html>
